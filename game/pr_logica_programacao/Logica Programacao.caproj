@@ -9,8 +9,16 @@
     <app-id>com.mycompany.myapp</app-id>
     <unique-id>15k5lhf9ehcl2</unique-id>
     <saved-with-version>23300</saved-with-version>
-    <used-plugins />
-    <used-behaviors />
+    <used-plugins>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
@@ -37,7 +45,125 @@
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
-    <object-folder />
+    <object-folder>
+        <object-type name="Limit_side" sid="159047842677534">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="287620722633821">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="tilemap" sid="183316347094704">
+            <plugin id="Tilemap" />
+            <behaviors>
+                <behavior-type name="Solid" sid="390616007942370">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="D:\Faculdade\2019.1\Projeto Curricular Articulador\AP3\desenvolvendo-desenvolvedores\game\pr_logica_programacao\Files\tileset_2x.png" />
+            <tiles>
+                <tile id="272">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="273">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="274">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="305">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="306">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="307">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="308">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="1" y="1" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="309">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="1" y="1" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="310">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="1" y="1" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+            </tiles>
+        </object-type>
+        <object-type name="player" sid="815698151444277">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Platform" sid="718579290319521">
+                    <behavior id="Platform" />
+                </behavior-type>
+                <behavior-type name="ScrollTo" sid="559059919195324">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="455875431279046" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Limit_bottom" sid="328207841596458">
+            <plugin id="TiledBg" />
+            <behaviors>
+                <behavior-type name="Solid" sid="120978924022823">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+    </object-folder>
     <families />
     <layout-folder>
         <layout>Layout 1.xml</layout>
