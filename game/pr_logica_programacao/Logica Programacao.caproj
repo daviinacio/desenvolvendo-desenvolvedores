@@ -10,13 +10,17 @@
     <unique-id>15k5lhf9ehcl2</unique-id>
     <saved-with-version>23300</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="List" version="1">List</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+        <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
-        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects />
@@ -29,6 +33,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Level1</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -58,7 +63,7 @@
         <object-type name="tilemap" sid="183316347094704">
             <plugin id="Tilemap" />
             <behaviors>
-                <behavior-type name="Solid" sid="390616007942370">
+                <behavior-type name="Solid" sid="438413652144385">
                     <behavior id="solid" />
                 </behavior-type>
             </behaviors>
@@ -66,10 +71,9 @@
             <tiles>
                 <tile id="272">
                     <collision-poly>
-                        <point x="0" y="1" />
-                        <point x="0" y="1" />
-                        <point x="0" y="1" />
-                        <point x="0" y="1" />
+                        <point x="0.367188" y="0.414063" />
+                        <point x="1" y="0" />
+                        <point x="0.601563" y="0.882813" />
                     </collision-poly>
                 </tile>
                 <tile id="273">
@@ -144,9 +148,6 @@
                 <behavior-type name="Platform" sid="718579290319521">
                     <behavior id="Platform" />
                 </behavior-type>
-                <behavior-type name="ScrollTo" sid="559059919195324">
-                    <behavior id="scrollto" />
-                </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="455875431279046" speed="5">
@@ -163,15 +164,188 @@
             </behaviors>
             <texture />
         </object-type>
+        <object-type name="Hud_top" sid="537199582826659">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="label_level" sid="661932811286641">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Touch" sid="928927841795812">
+            <plugin id="Touch" />
+        </object-type>
+        <object-type name="btn_play" sid="879313315214149">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="155111311043667" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Faculdade\2019.1\Projeto Curricular Articulador\AP3\desenvolvendo-desenvolvedores\game\pr_logica_programacao\Files\icons8-play-100.png">
+                        <collision-poly>
+                            <point x="0.2" y="0.2" />
+                            <point x="0.5" y="0.28" />
+                            <point x="0.86" y="0.5" />
+                            <point x="0.5" y="0.72" />
+                            <point x="0.2" y="0.8" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tilemap_bg" sid="448217180564032">
+            <plugin id="Tilemap" />
+            <texture original-source="D:\Faculdade\2019.1\Projeto Curricular Articulador\AP3\desenvolvendo-desenvolvedores\game\pr_logica_programacao\Files\tileset_2x.png" />
+            <tiles>
+                <tile id="272">
+                    <collision-poly>
+                        <point x="0.367188" y="0.414063" />
+                        <point x="1" y="0" />
+                        <point x="0.601563" y="0.882813" />
+                    </collision-poly>
+                </tile>
+                <tile id="273">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="274">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="305">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="306">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="307">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="308">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="1" y="1" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="309">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="1" y="1" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="310">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="1" y="1" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+            </tiles>
+        </object-type>
+        <object-type name="btn_stop" sid="639755882391314">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="302605405580380" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Faculdade\2019.1\Projeto Curricular Articulador\AP3\desenvolvendo-desenvolvedores\game\pr_logica_programacao\Files\icons8-stop-100.png">
+                        <collision-poly>
+                            <point x="0.2" y="0.2" />
+                            <point x="0.5" y="0.28" />
+                            <point x="0.86" y="0.5" />
+                            <point x="0.5" y="0.72" />
+                            <point x="0.2" y="0.8" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Function" sid="522426193732658">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="cmd_left" sid="625288624790435">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="957640824558550" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="cmd_right" sid="514973396801878">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="846511839819524" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="cmd_jump" sid="870321882507478">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="548173569154288" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="List_command" sid="699181071402823">
+            <plugin id="List" />
+        </object-type>
+        <object-type name="coin_block" sid="768276718893595">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="768767497891666">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="195259532569013" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type global="1" name="Array_command" sid="667740731034317">
+            <plugin id="Arr" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
-        <layout>Layout 1.xml</layout>
+        <layout>Level1.xml</layout>
+        <layout>Global.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>Level Sheet.xml</event-sheet>
     </event-folder>
-    <global-instances />
+    <global-instances>
+        <global-instance type="Touch" uid="7">
+            <properties>
+                <use-mouse-input>Yes</use-mouse-input>
+            </properties>
+        </global-instance>
+        <global-instance type="Function" uid="11" />
+    </global-instances>
     <sounds-folder />
     <music-folder />
     <files-folder>

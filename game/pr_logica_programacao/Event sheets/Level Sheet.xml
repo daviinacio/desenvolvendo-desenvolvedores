@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Level Sheet</name>
+    <events>
+        <variable constant="0" name="status" sid="392822194729362" static="0" type="number">0</variable>
+        <variable constant="0" name="play_loop_interval" sid="876609774418462" static="0" type="number">2</variable>
+        <event-block sid="707881576465411">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="509578017792667" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="422211920441915" type="Function">
+                    <param id="0" name="Name">&quot;stop&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="217607745403752" title="Control">
+            <sub-events>
+                <event-block sid="220657057324291">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="702224268531180" type="Touch">
+                            <param id="0" name="Object">btn_play</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="211383864974419" type="Function">
+                            <param id="0" name="Name">&quot;play&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="966348062076646">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="696838503724854" type="Touch">
+                            <param id="0" name="Object">btn_stop</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="496468206138713" type="Function">
+                            <param id="0" name="Name">&quot;stop&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="180173913820796" title="Commands">
+            <sub-events>
+                <event-block sid="901170645397646">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="213941186468151" type="Touch">
+                            <param id="0" name="Object">cmd_left</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Add item" sid="807492102370125" type="List_command">
+                            <param id="0" name="Text">&quot;Esquerda&quot;</param>
+                        </action>
+                        <action id="5" name="Push" sid="852399162406382" type="Array_command">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">&quot;left&quot;</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="256695848088261">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="748214875130657" type="Touch">
+                            <param id="0" name="Object">cmd_right</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Add item" sid="840598968046696" type="List_command">
+                            <param id="0" name="Text">&quot;Direita&quot;</param>
+                        </action>
+                        <action id="5" name="Push" sid="606001586437737" type="Array_command">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">&quot;right&quot;</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="496688706109197">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="345662811269790" type="Touch">
+                            <param id="0" name="Object">cmd_jump</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Add item" sid="959204179186650" type="List_command">
+                            <param id="0" name="Text">&quot;Pular&quot;</param>
+                        </action>
+                        <action id="5" name="Push" sid="730270238175177" type="Array_command">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">&quot;jump&quot;</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="366639072772868" title="Game Functions">
+            <sub-events>
+                <event-block sid="537430746821337">
+                    <conditions>
+                        <condition id="0" name="On function" sid="883903856260250" type="Function">
+                            <param id="0" name="Name">&quot;play&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="835566061111053" type="Hud_top">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="849765603754714" type="System">
+                            <param id="0" name="Variable">status</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="172166149294010">
+                    <conditions>
+                        <condition id="0" name="On function" sid="484760262136956" type="Function">
+                            <param id="0" name="Name">&quot;stop&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="11" name="Clear" sid="882357560965307" type="List_command" />
+                        <action id="-9" name="Set value" sid="908097862099274" type="System">
+                            <param id="0" name="Variable">status</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="371890915641999">
+                    <conditions>
+                        <condition id="0" name="On function" sid="613122007812565" type="Function">
+                            <param id="0" name="Name">&quot;next&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="302319467864588" title="Events">
+            <sub-events>
+                <event-block sid="271351606764847">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="532533299814844" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="397878479239288">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="767260664784860" type="System">
+                                    <param id="0" name="Variable">status</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="9" name="Delete" sid="352164678422235" type="Array_command">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Axis">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="470074896314687">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="900022767052357" type="System">
+                                            <param id="0" name="First value">Array_command.Front</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;left&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="7" name="Add item" sid="529268642567383" type="List_command">
+                                            <param id="0" name="Text">&quot;Indo esquerda&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="362808387486910">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="990133293299744" type="System">
+                                            <param id="0" name="First value">Array_command.Front</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;right&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="7" name="Add item" sid="281633163135367" type="List_command">
+                                            <param id="0" name="Text">&quot;Indo direita&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="736129332424433">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="868633170087696" type="System">
+                                            <param id="0" name="First value">Array_command.Front</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Second value">&quot;jump&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="7" name="Add item" sid="474026327080763" type="List_command">
+                                            <param id="0" name="Text">&quot;pulando&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
