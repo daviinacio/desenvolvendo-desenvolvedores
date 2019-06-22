@@ -4,15 +4,42 @@
     <name>Level Sheet</name>
     <events>
         <variable constant="0" name="status" sid="392822194729362" static="0" type="number">0</variable>
-        <variable constant="0" name="play_loop_interval" sid="876609774418462" static="0" type="number">2</variable>
+        <variable constant="0" name="player_dir" sid="836968218628337" static="0" type="number">0</variable>
+        <variable constant="0" name="waiting" sid="404856110723005" static="0" type="number">0</variable>
+        <variable constant="0" name="play_loop_interval" sid="876609774418462" static="0" type="number">1</variable>
         <event-block sid="707881576465411">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="509578017792667" type="System" />
             </conditions>
             <actions>
-                <action id="0" name="Call function" sid="422211920441915" type="Function">
-                    <param id="0" name="Name">&quot;stop&quot;</param>
-                    <param id="1" name="Parameter {n}"></param>
+                <action id="-4" name="Set position to another object" sid="587295084969381" type="player">
+                    <param id="0" name="Object">player_default_position</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="11" name="Clear" sid="882357560965307" type="List_command" />
+                <action id="0" name="Clear" sid="802912146924742" type="Array_command" />
+                <action id="5" name="Push" sid="243417071076998" type="Array_command">
+                    <param id="0" name="Where">0</param>
+                    <param id="1" name="Value">0</param>
+                    <param id="2" name="Axis">0</param>
+                </action>
+                <action id="0" name="Set text" sid="382259035184707" type="level_value">
+                    <param id="0" name="Text">player_default_position.level</param>
+                </action>
+                <action id="-15" name="Set visible" sid="847785696662198" type="btn_refresh">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="904863129783960" type="btn_next">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="224802734897592" type="congratulations_lay">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="626812780449910" type="congratulations_txt">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="365385860394588" type="congratularions_return_to_main_site">
+                    <param id="0" name="Visibility">0</param>
                 </action>
             </actions>
         </event-block>
@@ -23,6 +50,7 @@
                         <condition id="3" name="On touched object" sid="702224268531180" type="Touch">
                             <param id="0" name="Object">btn_play</param>
                         </condition>
+                        <condition id="-9" name="Is visible" sid="282640967100427" type="btn_play" />
                     </conditions>
                     <actions>
                         <action id="0" name="Call function" sid="211383864974419" type="Function">
@@ -31,16 +59,55 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="966348062076646">
+                <event-block sid="971958169859305">
                     <conditions>
-                        <condition id="3" name="On touched object" sid="696838503724854" type="Touch">
-                            <param id="0" name="Object">btn_stop</param>
+                        <condition id="3" name="On touched object" sid="512530685328041" type="Touch">
+                            <param id="0" name="Object">btn_next</param>
                         </condition>
+                        <condition id="-9" name="Is visible" sid="190627095275410" type="btn_next" />
                     </conditions>
                     <actions>
-                        <action id="0" name="Call function" sid="496468206138713" type="Function">
-                            <param id="0" name="Name">&quot;stop&quot;</param>
+                        <action id="0" name="Call function" sid="569177886366203" type="Function">
+                            <param id="0" name="Name">&quot;next&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="581837365664801">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="252413224772638" type="Touch">
+                            <param id="0" name="Object">btn_refresh</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="493815224224888" type="btn_refresh" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="675812855780020" type="Function">
+                            <param id="0" name="Name">&quot;refresh&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="856231595132578">
+                    <conditions>
+                        <condition id="3" name="On touched object" sid="273820513632644" type="Touch">
+                            <param id="0" name="Object">congratularions_return_to_main_site</param>
+                        </condition>
+                        <condition id="-9" name="Is visible" sid="744766659147969" type="congratularions_return_to_main_site" />
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Go to URL" sid="339885790476000" type="Browser">
+                            <param id="0" name="URL">&quot;https://daviinacio.github.io/desenvolvendo-desenvolvedores/&quot;</param>
+                            <param id="1" name="Target">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="720046574093841">
+                    <conditions>
+                        <condition id="0" name="On any touch start" sid="730612176222860" type="Touch" />
+                    </conditions>
+                    <actions>
+                        <action id="-15" name="Set visible" sid="595834687690279" type="tutorial_txt">
+                            <param id="0" name="Visibility">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -53,6 +120,7 @@
                         <condition id="3" name="On touched object" sid="213941186468151" type="Touch">
                             <param id="0" name="Object">cmd_left</param>
                         </condition>
+                        <condition id="-9" name="Is visible" sid="252977872812129" type="cmd_left" />
                     </conditions>
                     <actions>
                         <action id="7" name="Add item" sid="807492102370125" type="List_command">
@@ -70,6 +138,7 @@
                         <condition id="3" name="On touched object" sid="748214875130657" type="Touch">
                             <param id="0" name="Object">cmd_right</param>
                         </condition>
+                        <condition id="-9" name="Is visible" sid="546869294005791" type="cmd_right" />
                     </conditions>
                     <actions>
                         <action id="7" name="Add item" sid="840598968046696" type="List_command">
@@ -87,6 +156,7 @@
                         <condition id="3" name="On touched object" sid="345662811269790" type="Touch">
                             <param id="0" name="Object">cmd_jump</param>
                         </condition>
+                        <condition id="-9" name="Is visible" sid="421420808682128" type="cmd_jump" />
                     </conditions>
                     <actions>
                         <action id="7" name="Add item" sid="959204179186650" type="List_command">
@@ -110,15 +180,24 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-15" name="Set visible" sid="835566061111053" type="Hud_top">
-                            <param id="0" name="Visibility">0</param>
-                        </action>
                         <action id="-9" name="Set value" sid="849765603754714" type="System">
                             <param id="0" name="Variable">status</param>
                             <param id="1" name="Value">1</param>
                         </action>
                         <action id="0" name="Set selection" sid="478220866932894" type="List_command">
                             <param id="0" name="Index">-1</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="288799390639742" type="cmd_jump">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="678543975448909" type="cmd_left">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="184750944425156" type="cmd_right">
+                            <param id="0" name="Visibility">0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="934000455266392" type="btn_play">
+                            <param id="0" name="Visibility">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -129,12 +208,69 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="11" name="Clear" sid="882357560965307" type="List_command" />
                         <action id="-9" name="Set value" sid="908097862099274" type="System">
                             <param id="0" name="Variable">status</param>
                             <param id="1" name="Value">0</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="558534485059341">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="284371279301188" type="player">
+                                    <param id="0" name="Instance variable">score</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">player_default_position.objective_score</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="2" name="Set visible" sid="776627063973989" type="List_command">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="469315730454874">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="992504433302445" type="player">
+                                            <param id="0" name="Instance variable">score</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">800</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="588096892451842" type="congratulations_lay">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="728273972404580" type="congratulations_txt">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="220840842859891" type="congratularions_return_to_main_site">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="664117486626947">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="473960444081396" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-15" name="Set visible" sid="689165175561682" type="btn_next">
+                                            <param id="0" name="Visibility">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="587444982007664">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="426383038626118" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="197843377482910" type="btn_refresh">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="371890915641999">
                     <conditions>
@@ -142,22 +278,92 @@
                             <param id="0" name="Name">&quot;next&quot;</param>
                         </condition>
                     </conditions>
-                    <actions />
+                    <actions>
+                        <action id="-43" name="Go to next/previous layout" sid="695963057480943" type="System">
+                            <param id="0" name="Which">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="617580528335235">
+                    <conditions>
+                        <condition id="0" name="On function" sid="813128443890406" type="Function">
+                            <param id="0" name="Name">&quot;refresh&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="269254793115980" type="System" />
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="302319467864588" title="Events">
             <sub-events>
+                <event-block sid="298687742054796">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="241313990842782" type="System">
+                            <param id="0" name="Interval (seconds)">1.0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="588186175210094">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="821191252294010" type="coin_block">
+                                    <param id="0" name="Instance variable">destroyed</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="402962758911540" type="coin_block">
+                                    <param id="0" name="Animation">&quot;Destroyed&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="713277540871606">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="381021191182102" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="162089191209267" type="coin_block">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="820216169900487">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="258501065094965" type="System">
+                            <param id="0" name="Interval (seconds)">play_loop_interval / 2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="663201837591873" type="System">
+                            <param id="0" name="Variable">waiting</param>
+                            <param id="1" name="Value">waiting + 1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="422089080558152" type="System">
+                            <param id="0" name="Variable">waiting</param>
+                            <param id="1" name="Value">waiting % 2</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="271351606764847">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="532533299814844" type="System">
-                            <param id="0" name="Interval (seconds)">1.0</param>
+                            <param id="0" name="Interval (seconds)">play_loop_interval</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
                         <event-block sid="394253931738939">
                             <conditions>
+                                <condition id="-14" name="Compare variable" sid="706369188255973" type="System">
+                                    <param id="0" name="Variable">status</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
                                 <condition id="6" name="Is empty" sid="373509673244958" type="Array_command" />
                             </conditions>
                             <actions>
@@ -183,6 +389,10 @@
                                 <action id="0" name="Set selection" sid="595693135052025" type="List_command">
                                     <param id="0" name="Index">List_command.SelectedIndex + 1</param>
                                 </action>
+                                <action id="-9" name="Set value" sid="102543946133333" type="System">
+                                    <param id="0" name="Variable">player_dir</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
                             </actions>
                             <sub-events>
                                 <event-block sid="470074896314687">
@@ -194,8 +404,13 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action disabled="1" id="7" name="Add item" sid="529268642567383" type="List_command">
-                                            <param id="0" name="Text">&quot;Indo esquerda&quot;</param>
+                                        <action id="-9" name="Set value" sid="504312074561662" type="System">
+                                            <param id="0" name="Variable">player_dir</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="434283230614903" type="System">
+                                            <param id="0" name="Variable">waiting</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -208,8 +423,13 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action disabled="1" id="7" name="Add item" sid="281633163135367" type="List_command">
-                                            <param id="0" name="Text">&quot;Indo direita&quot;</param>
+                                        <action id="-9" name="Set value" sid="247922577272083" type="System">
+                                            <param id="0" name="Variable">player_dir</param>
+                                            <param id="1" name="Value">2</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="284680596507930" type="System">
+                                            <param id="0" name="Variable">waiting</param>
+                                            <param id="1" name="Value">0</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -222,8 +442,127 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action disabled="1" id="7" name="Add item" sid="474026327080763" type="List_command">
-                                            <param id="0" name="Text">&quot;pulando&quot;</param>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="456644036446867" type="player">
+                                            <param id="0" name="Control">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="888779490306563" title="Player">
+            <sub-events>
+                <event-block sid="246523680774786">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="351073498783061" type="player">
+                            <param id="0" name="Object">coin_block</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="332862351253067" type="player">
+                            <param id="0" name="Instance variable">score</param>
+                            <param id="1" name="Value">player.score + 200</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="547202714500294">
+                    <conditions>
+                        <condition behavior="Platform" id="8" name="On moved" sid="179513862113492" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="344691378581334" type="player">
+                            <param id="0" name="Animation">&quot;Walking&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="165047462400868">
+                    <conditions>
+                        <condition behavior="Platform" id="7" name="On stopped" sid="425112192019416" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="775780918258165" type="player">
+                            <param id="0" name="Animation">&quot;Stopped&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="349299478203745">
+                    <conditions>
+                        <condition behavior="Platform" id="5" name="On jump" sid="312746116222718" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="145355710686785" type="player">
+                            <param id="0" name="Animation">&quot;Jump&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="131074195382424">
+                    <conditions>
+                        <condition behavior="Platform" id="9" name="On landed" sid="515415663590383" type="player" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="916735818655633" type="player">
+                            <param id="0" name="Animation">&quot;Stopped&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="641635832621919">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="614335723624482" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="512879799733453" type="score_value">
+                            <param id="0" name="Text">player.score</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="470436069888107">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="350398486831935" type="System">
+                                    <param id="0" name="Variable">waiting</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="647858825619618">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="451592992291316" type="System">
+                                            <param id="0" name="Variable">player_dir</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="313276241880965" type="player">
+                                            <param id="0" name="Control">0</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="360505280010281" type="player">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="643801448444487">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="388721742573558" type="System">
+                                            <param id="0" name="Variable">player_dir</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="7" name="Simulate control" sid="499479429198965" type="player">
+                                            <param id="0" name="Control">1</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="899462136489735" type="player">
+                                            <param id="0" name="State">1</param>
                                         </action>
                                     </actions>
                                 </event-block>

@@ -10,9 +10,12 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="1">Level1</layout>
         <layout order="0">Global</layout>
-        <event-sheet active="1" order="2">Level Sheet</event-sheet>
+        <layout order="2">Level2</layout>
+        <layout active="1" order="1">Level1</layout>
+        <layout order="4">Level4</layout>
+        <layout order="3">Level3</layout>
+        <event-sheet order="5">Level Sheet</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -31,10 +34,12 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="file-folder/Icons/" />
         <folder expanded="1" path="animation-folder/player/" />
         <folder expanded="1" path="animation-folder/btn_play/" />
-        <folder expanded="1" path="animation-folder/btn_stop/" />
         <folder expanded="1" path="animation-folder/cmd_left/" />
         <folder expanded="1" path="animation-folder/cmd_right/" />
         <folder expanded="1" path="animation-folder/cmd_jump/" />
         <folder expanded="1" path="animation-folder/coin_block/" />
+        <folder expanded="1" path="animation-folder/player_default_position/" />
+        <folder expanded="1" path="animation-folder/btn_next/" />
+        <folder expanded="1" path="animation-folder/btn_refresh/" />
     </folders-expanded>
 </c2uistate>

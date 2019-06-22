@@ -11,6 +11,7 @@
     <saved-with-version>23300</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="List" version="1">List</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
@@ -21,6 +22,7 @@
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="jumpthru" version="1">Jump-thru</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects />
@@ -33,7 +35,6 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
-    <first-layout>Level1</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -63,12 +64,20 @@
         <object-type name="tilemap" sid="183316347094704">
             <plugin id="Tilemap" />
             <behaviors>
-                <behavior-type name="Solid" sid="438413652144385">
-                    <behavior id="solid" />
+                <behavior-type name="Jumpthru" sid="300595456573992">
+                    <behavior id="jumpthru" />
                 </behavior-type>
             </behaviors>
             <texture original-source="D:\Faculdade\2019.1\Projeto Curricular Articulador\AP3\desenvolvendo-desenvolvedores\game\pr_logica_programacao\Files\tileset_2x.png" />
             <tiles>
+                <tile id="0">
+                    <collision-poly>
+                        <point x="0" y="0.03125" />
+                        <point x="1" y="0.03125" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
                 <tile id="272">
                     <collision-poly>
                         <point x="0.367188" y="0.414063" />
@@ -144,13 +153,31 @@
         </object-type>
         <object-type name="player" sid="815698151444277">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="score" sid="732577743091479" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="718579290319521">
                     <behavior id="Platform" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="455875431279046" speed="5">
+                <animation framecount="1" loop="0" name="Stopped" pingpong="0" repeatcount="1" repeatto="0" sid="455875431279046" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0" y="0.0234375" />
+                            <point x="1" y="0.0214844" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="3" loop="0" name="Walking" pingpong="0" repeatcount="1" repeatto="0" sid="799239984801242" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Jump" pingpong="0" repeatcount="1" repeatto="0" sid="780019321413580" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -167,9 +194,6 @@
         <object-type name="Hud_top" sid="537199582826659">
             <plugin id="TiledBg" />
             <texture />
-        </object-type>
-        <object-type name="label_level" sid="661932811286641">
-            <plugin id="Text" />
         </object-type>
         <object-type name="Touch" sid="928927841795812">
             <plugin id="Touch" />
@@ -267,22 +291,6 @@
                 </tile>
             </tiles>
         </object-type>
-        <object-type name="btn_stop" sid="639755882391314">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="302605405580380" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Faculdade\2019.1\Projeto Curricular Articulador\AP3\desenvolvendo-desenvolvedores\game\pr_logica_programacao\Files\icons8-stop-100.png">
-                        <collision-poly>
-                            <point x="0.2" y="0.2" />
-                            <point x="0.5" y="0.28" />
-                            <point x="0.86" y="0.5" />
-                            <point x="0.5" y="0.72" />
-                            <point x="0.2" y="0.8" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type name="Function" sid="522426193732658">
             <plugin id="Function" />
         </object-type>
@@ -315,13 +323,21 @@
         </object-type>
         <object-type name="coin_block" sid="768276718893595">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="destroyed" sid="435976489753624" type="boolean" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Solid" sid="768767497891666">
                     <behavior id="solid" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="195259532569013" speed="5">
+                <animation framecount="3" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="195259532569013" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+                <animation framecount="1" loop="0" name="Destroyed" pingpong="0" repeatcount="1" repeatto="0" sid="419354382318140" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -329,11 +345,177 @@
         <object-type global="1" name="Array_command" sid="667740731034317">
             <plugin id="Arr" />
         </object-type>
+        <object-type name="player_default_position" sid="805663613023270">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="level" sid="623842939313816" type="string" />
+                <instance-variable name="objective_score" sid="501534338711184" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="106942399373438" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="level_label" sid="847418856234943">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="level_value" sid="656453834437577">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="score_label" sid="348094663144512">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="score_value" sid="114717045858275">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="btn_next" sid="986634406727483">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="198462013435623" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="btn_refresh" sid="870444465661525">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="320062431488395" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="D:\Faculdade\2019.1\Projeto Curricular Articulador\AP3\desenvolvendo-desenvolvedores\game\pr_logica_programacao\Files\baseline_cached_black_48dp.png">
+                        <collision-poly>
+                            <point x="0.260417" y="0.260417" />
+                            <point x="0.5" y="0.166667" />
+                            <point x="0.833333" y="0.5" />
+                            <point x="0.739583" y="0.739583" />
+                            <point x="0.5" y="0.833333" />
+                            <point x="0.0416667" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="tilemap_solid" sid="663932985363347">
+            <plugin id="Tilemap" />
+            <behaviors>
+                <behavior-type name="Solid" sid="414358886954822">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture original-source="D:\Faculdade\2019.1\Projeto Curricular Articulador\AP3\desenvolvendo-desenvolvedores\game\pr_logica_programacao\Files\tileset_2x.png" />
+            <tiles>
+                <tile id="0">
+                    <collision-poly>
+                        <point x="0" y="0.03125" />
+                        <point x="1" y="0.03125" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="33">
+                    <collision-poly>
+                        <point x="0.03125" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="1" />
+                        <point x="0.03125" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="272">
+                    <collision-poly>
+                        <point x="0.367188" y="0.414063" />
+                        <point x="1" y="0" />
+                        <point x="0.601563" y="0.882813" />
+                    </collision-poly>
+                </tile>
+                <tile id="273">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="274">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="305">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="306">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="307">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="308">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="1" y="1" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="309">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="1" y="1" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="310">
+                    <collision-poly>
+                        <point x="0" y="1" />
+                        <point x="1" y="1" />
+                        <point x="1" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+            </tiles>
+        </object-type>
+        <object-type name="congratulations_txt" sid="168071832487331">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="congratulations_lay" sid="109737819852901">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="congratularions_return_to_main_site" sid="344200243093803">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Browser" sid="313066470552095">
+            <plugin id="Browser" />
+        </object-type>
+        <object-type name="tutorial_txt" sid="583454614922499">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families />
     <layout-folder>
-        <layout>Level1.xml</layout>
         <layout>Global.xml</layout>
+        <layout>Level1.xml</layout>
+        <layout>Level2.xml</layout>
+        <layout>Level3.xml</layout>
+        <layout>Level4.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Level Sheet.xml</event-sheet>
@@ -345,6 +527,7 @@
             </properties>
         </global-instance>
         <global-instance type="Function" uid="11" />
+        <global-instance type="Browser" uid="49" />
     </global-instances>
     <sounds-folder />
     <music-folder />
