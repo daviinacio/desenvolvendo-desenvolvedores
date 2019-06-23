@@ -1,21 +1,174 @@
-.card {
-    list-style: none;
-    background: rgba(64, 64, 64, 0.57);
-    width: 500px;
-    padding: 10px;
+body {
+    background: url('img/background3.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
 }
 
-.card img {
+.bg {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+#conteudo {
+    margin-top: 10px;
+    margin: auto;
+    font-size: 17px;
+    align-content: center;
+    line-height: 1.5;
+/*    background:#4abdac;*/
+
+    padding: 5px;
+    width: 95%;
+    /*    max-width: 1700px;*/
+    min-height: 900px;
+    border-radius: 15px;
+    border-bottom-right-radius: 5%;
+    padding: 10px 10px 20px 10px;
+
+    margin: auto;
+    width: 90%;
+}
+
+#titulo {
+    margin: auto;
+/*    background: #4abdac;*/
+    font-size: 20px;
+    border-radius: 10px;
+    border-bottom-right-radius: 50px;  
     width: 100%;
+/*    max-width: 1800px;*/
+    color: white;
+    padding: 0 10px;
+
 }
 
-.card a {
-    color: #eee;
+#titulo h1 {
+    text-align: center;
+    font-size: 50px;
+    font-weight: 1000;
+    margin-left: 10px;
+    padding: 20px;
+}
+
+.texto {
+    margin: 20px;
+    text-align: justify;
+    margin-left: 10px;
+    background: #f7b733;
+    
+    
+    border-top-style: solid;
+    border-color: #fc4a1a;
+    border-top-width: 7px;
+    border-radius: 25px;
+    color: white;
+    padding: 10px 25px;
+}
+
+
+h2 {
+    color: black;
+}
+
+h3 {
+    color: #003399;
+}
+ 
+#card {
+    
+/*    width: 700px;*/
+    padding: 5px;
     text-align: center;
     font-size: 22px;
     text-decoration: none;
+    margin: 10px;
+    border-radius: 5px;
 }
 
-.card a:hover {
-    text-decoration: underline;
+#card img {
+    width: 100%;
+    margin: auto;
 }
+
+#card a {
+    color: #eee;
+    text-decoration: none;
+}
+
+#card a:hover {
+    text-decoration: underline;
+    margin:auto
+}
+
+#gameframe {
+    border: none;
+    width: 100%;
+    height: calc(100% - 350px);
+    display: none;
+}
+
+#gameframe:hover {
+    
+}
+
+#callGame {
+    margin: auto;
+    background: rgba(64, 64, 64, 0.57);
+    padding: 10px;
+    max-width: 750px;
+    
+    cursor: pointer;
+}
+
+#gameframe, #callGame, #callGame img {
+    border-radius: 15px;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.contact, .contact * {
+    margin: 0;
+    padding: 0;
+}
+
+.contact {
+    list-style: none;
+}
+
+.contact li * {
+    
+}
+
+.contact .matr {
+/*    text-align: center;*/
+}
+
+
+.contact hr {
+    border: none;
+    height: 1px;
+    background: #fc4a1a;
+    margin: 10px  0 20px 0 !important;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width:768px) {
+    .mobile-only {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+

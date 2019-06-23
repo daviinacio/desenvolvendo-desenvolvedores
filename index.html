@@ -1,50 +1,105 @@
-<html>
+<html lang="PT-BR">
     <head>
         <!-- Metas -->
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta http-equiv="Content-Script-Type" content="text/javascript" />
-		<meta name="description" content="Davi Inácio github website" />
-		<meta name="keywords" content="daviinacio, davi inácio, daviapps, opensource, github" />
-		<meta name="author" content="@daviinacio" />
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Script-Type" content="text/javascript">
+        <meta name="description" content="Davi Inácio github website">
+        <meta name="keywords" content="daviinacio, davi inácio, daviapps, opensource, github">
+        <meta name="author" content="@daviinacio">
 
-		<title>Desenvolvendo Desenvolvedores</title>
-		
-		<!-- UI Style -->
-		<link href="css/style.css" rel="stylesheet"/>
-		<link href="css/grid.css" rel="stylesheet"/>
-		
-		<!-- JQuery import -->
-		<script src="js/jquery-3.3.1.min.js"></script>
-		
-		<!-- Main Script import -->
-		<script src="js/script.js"></script>
+        <title>Desenvolvendo Desenvolvedores</title>
+        
+        <!-- UI Style -->
+        <link href="CSS/style.css" rel="stylesheet">
+        <link href="CSS/grid.css" rel="stylesheet">
+        
+        <!-- JQuery import -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        
+        <!-- Main Script import -->
+        <script src="js/script.js"></script>
     </head>
     <body>
         <header>
-            <div class="container">
+            <div class="container" id="titulo">
                 <h1>Desenvolvendo Desenvolvedores</h1>
             </div>
         </header>
         
-        <section class="container">
-            <div class="container">
-                <ul class="">
-                    <li class="card">
-                        <a href="game/logica_programacao">
-                            <img src="thumb/logica_programacao.png"/>
-                            <h3>Aprenda Lógica de Programação</h3>
-                        </a>
-                    </li>
-                </ul>
+        <main>
+            <div class="container bg" id="conteudo">
+                <div class="texto">
+                    <h2 class="headden">Sobre o Projeto</h2>
+                    <h3>
+                        Essa página tem como objetivo apresentar alguns detalhes sobre o nosso projeto, “Desenvolvendo Desenvolvedores”, onde utilizaremos jogos como meio de ensino ao raciocínio lógico e programação.
+                        Com o avanço da tecnologia, cada vez mais temos que formar criadores ao invés de apenas consumidores digitais.
+
+                    </h3>
+                </div>
+                <div class="texto" >
+                    <h2 class="headden">Aprenda Jogando</h2> 
+                    <div>
+                        <h3>   
+                            Teste seu raciocínio lógico.
+                            O objetivo de cada fase é fazer com que o mario encontre a caixa [?].
+                            Você deve definir quais comandos serão executados pelo personagem.
+                            Em seguida, pressione o botão 'play' e veja se ele vai ou não alcançar seu objetivo.
+                        </h3>
+                    </div>
+                    <div id="card">
+                        <iframe id="gameFrame" src=""></iframe>
+                        
+                        <div id="callGame">
+                            <img src="thumb/logica_programacao.png">
+                            <div class = "header underscorehover">Jogue Agora</div>
+
+                        </div>
+                    </div>
+                    
+<!--                    <iframe src="https://daviinacio.github.io/desenvolvendo-desenvolvedores/game/logica_programacao/" width="100%"></iframe>-->
+
+                </div>
+                <div class="texto">
+                    <h2 class="headden">Quem somos</h2>
+                    <h3>
+                        <ul class="contact">
+                            <li class="row">
+                                <p class="col-md-4">Bruno de Freitas</p>
+                                <p class="col-md-2 matr">5404972</p>
+                                <a class="col-md-6" href="mailto:brunog.tioc@gmail.com">brunog.tioc@gmail.com</a>
+                                <hr class="mobile-only"/>
+                            </li>
+                            <li class="row">
+                                <p class="col-md-4">Davi Inácio</p>
+                                <p class="col-md-2 matr">5404907</p>
+                                <a class="col-md-6" href="mailto:aazz6850@gmail.com">aazz6850@gmail.com</a>
+                                <hr class="mobile-only"/>
+                            </li>
+                            <li class="row">
+                                <p class="col-md-4">Juan Rezende</p>
+                                <p class="col-md-2 matr">5404883</p>
+                                <a class="col-md-6" href="mailto:juanvictor.rezende11@gmail.com">juanvictor.rezende11@gmail.com</a>
+                                <hr class="mobile-only"/>
+                            </li>
+                            <li class="row">
+                                <p class="col-md-4">Rebeca Cabral</p>
+                                <p class="col-md-2 matr">5404970</p>
+                                <a class="col-md-6" href="mailto:rebecabcabral@outlook.com">rebecabcabral@outlook.com</a>
+                                <hr class="mobile-only"/>
+                            </li>
+                        </ul>
+                    </h3>
+                </div>
             </div>
-        </section>
-        
+         </main>
+       
         <footer>
-            <div class="container">
+            <div class="container" id="rodape">
                 
             </div>
         </footer>
+
     </body>
 </html>
